@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="Back"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_tk"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/mini_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mini_title_tk"
+        android:textColor="#201E1E"
+        android:textSize="18sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/title"/>
+
+    <GridLayout
+        android:layout_width="369dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mini_title"
+        android:layout_marginLeft="20dp"
+        android:background="@color/white"
+        android:columnCount="4"
+        android:padding="1dp">
+
+        <TextView
+            android:id="@+id/id_table"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
+            android:background="@color/light_smoke"
+            android:gravity="center"
+            android:text="@string/table_col1"
+            android:textColor="@color/purple_500" />
+
+        <TextView
+            android:id="@+id/name_table"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
+            android:background="@color/light_smoke"
+            android:gravity="center"
+            android:text="@string/table_col2"
+            android:textColor="@color/purple_500" />
+
+        <TextView
+            android:id="@+id/sl_table"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
+            android:background="@color/light_smoke"
+            android:gravity="center"
+            android:text="@string/table_col3"
+            android:textColor="@color/purple_500" />
+
+        <TextView
+            android:id="@+id/inYear_table"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
+            android:background="@color/light_smoke"
+            android:gravity="center"
+            android:text="@string/table_col4"
+            android:textColor="@color/purple_500" />
+
+    </GridLayout>
+
+
+    <ListView
+        android:id="@+id/list_tk"
+        android:layout_width="380dp"
+        android:layout_height="490dp"
+        android:layout_below="@+id/mini_title"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="23dp"
+        android:background="@color/white"
+        android:padding="2dp" />
+    
+
+</RelativeLayout>

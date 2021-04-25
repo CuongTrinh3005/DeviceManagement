@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#3395CF">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mã loại"
+            android:textSize="12dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"/>
+
+        <Spinner
+            android:id="@+id/sp_maloai"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên loại"
+            android:textSize="12dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginLeft="25dp"/>
+
+        <TextView
+            android:id="@+id/tv_tenloai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tên "
+            android:textSize="12dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DANH MỤC THIẾT BỊ"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="10dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TableLayout
+            android:id="@+id/tb_danhmuc"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_margin="8dp"
+            android:stretchColumns="1,2,3">
+
+            <TableRow>
+
+                <!--<TextView
+                    android:layout_width="wrap_content"
+                    android:padding="5dp"
+                    android:text="STT"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="#0277BD"/>-->
+
+                <TextView
+                    android:padding="5dp"
+                    android:text="Mã TB"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginLeft="1dp"
+                    android:background="#0277BD"/>
+
+                <TextView
+                    android:text="Tên thiết bị"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:layout_column="1"
+                    android:layout_marginLeft="1dp"
+                    android:background="#0277BD"/>
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:text="Xuất xứ"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:layout_column="2"
+                    android:layout_marginLeft="1dp"
+                    android:background="#0277BD"/>
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+
+</LinearLayout>
