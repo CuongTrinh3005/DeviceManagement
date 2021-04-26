@@ -3,6 +3,7 @@ package com.example.devicemanagement;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,12 +43,16 @@ public class UserLayout extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_layout);
+        Intent intent= getIntent();
+        Bundle b= intent.getExtras();
+        String id = b.getString("accountId");
         setControl();
         setEvent();
         DatabaseHandler handler = new DatabaseHandler(this);
-        Manager manager = new Manager("MN01", "1234", "Cuong", true,
-                Date.valueOf("1999-03-04"));
-        handler.saveManager(manager);
+//        Manager manager = new Manager("MN01", "1234", "Cuong", true,
+//                Date.valueOf("1999-03-04"));
+//        handler.saveManager(manager);
+        Manager manager = handler.getAccountById(id);
 
         // Manager manager = handler.getAccountIF("abc", "1234");
         //Toast.makeText(UserLayout.this, manager.getName(),Toast.LENGTH_SHORT).show();

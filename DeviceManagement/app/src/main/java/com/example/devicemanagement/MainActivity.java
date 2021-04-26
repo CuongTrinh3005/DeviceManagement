@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity{
             startActivity(intent);
         }
         else {
-            Toast.makeText(this, "Xin mời đăng nhập",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Xin mời đăng nhập",Toast.LENGTH_SHORT).show();
         }
 
         logIn.setOnClickListener(new View.OnClickListener() {

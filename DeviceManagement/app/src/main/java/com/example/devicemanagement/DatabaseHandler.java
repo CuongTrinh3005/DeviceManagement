@@ -212,6 +212,23 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return account;
     }
 
+    // Get Account by ID
+    public Manager getAccountById(String id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c= db.rawQuery("Select * from "+TABLE_MANAGER+" where id=?", new String[]{id});
+        Manager account= new Manager();
+        if (c != null){
+            if(c.moveToFirst()) {
+                account.setId(c.getString(0));
+                account.setPassword(c.getString(1));
+                account.setName(c.getString(2));
+                account.setGender(Boolean.parseBoolean(c.getString(3)));
+                account.setBirthday(Date.valueOf(c.getString(4)));
+            }
+        }
+        return account;
+    }
+
     public List<TypeOfDevice> getAllTypeOfDevice(){
         List<TypeOfDevice> typeOfDeviceList = new ArrayList<>();
         // Select All Query

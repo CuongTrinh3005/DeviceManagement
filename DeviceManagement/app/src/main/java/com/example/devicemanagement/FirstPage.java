@@ -87,6 +87,10 @@ public class FirstPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FirstPage.this, UserLayout.class);
+                Bundle b = new Bundle();
+                b.putString("accountId", id.getText().toString().trim());
+
+                intent.putExtras(b);
                 startActivity(intent);
             }
         });

@@ -175,9 +175,9 @@ public class DevicesManageActivity extends AppCompatActivity {
                 Device newDevice = new Device(id, name, typeId, origin, compressImage, quantity, state);
                 int result = db.updateDevice(newDevice);
                 if (result > 0) {
-                    Toast.makeText(getApplication(), "Update successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "Update successfully", Toast.LENGTH_SHORT).show();
                     loadData();
-                } else Toast.makeText(getApplication(), "Update failed", Toast.LENGTH_SHORT).show();
+                } else Toast.makeText(getBaseContext(), "Update failed", Toast.LENGTH_SHORT).show();
             }
         });
         btnLoad.setOnClickListener(new View.OnClickListener() {
@@ -261,8 +261,14 @@ public class DevicesManageActivity extends AppCompatActivity {
 
     private void setDataForSpinnerType(TypeOfDevice type) {
         if (type != null) {
-            int spinnerPosition = typeAdapter.getPosition(type);
-            spTypes.setSelection(spinnerPosition);
+//            int spinnerPosition = typeAdapter.getPosition(type);
+//            spTypes.setSelection(spinnerPosition);
+            for(int i=0; i<typeAdapter.getCount();i++){
+                if(typeAdapter.getItem(i).equals(type)){
+                    spTypes.setSelection(i);
+                    return;
+                }
+            }
         }
     }
 
