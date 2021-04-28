@@ -2,7 +2,9 @@ package com.example.devicemanagement;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,12 +13,17 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.devicemanagement.Entities.Device;
+
+import java.util.Arrays;
 import java.util.List;
+
+import static androidx.core.content.ContextCompat.startActivity;
 
 public class DeviceAdapter extends ArrayAdapter {
     Context context;
@@ -62,7 +69,7 @@ public class DeviceAdapter extends ArrayAdapter {
             byte[] imageBytes = new byte[0];
             imageBytes = devicesList.get(position).getImage();
 
-            if(imageBytes.length > 0){
+            if(imageBytes!=null && imageBytes.length > 0){
                 // Recover to image from bytes array
                 Bitmap decodedImage = ((DevicesManageActivity)context).restoreImage(imageBytes);
                 if(decodedImage != null)
@@ -81,12 +88,24 @@ public class DeviceAdapter extends ArrayAdapter {
                     ((DevicesManageActivity)context).deleteDV(device);
                 }
             });
+            icon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getContext(), "Icon's clicked!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getContext(), showImageInFullScreen.class);
+                    Bundle b = new Bundle();
+                    b.putString("deviceId", id.trim());
+
+                    intent.putExtras(b);
+                    getContext().startActivity(intent);
+                }
+            });
         }
         catch (Exception ex){
             Log.d("Exception in custom list view: ", ex.toString());
+            ex.printStackTrace();
         }
 
         return convertView;
     }
 }
-

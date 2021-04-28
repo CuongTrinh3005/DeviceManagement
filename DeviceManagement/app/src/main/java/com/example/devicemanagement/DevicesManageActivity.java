@@ -42,7 +42,7 @@ public class DevicesManageActivity extends AppCompatActivity {
     List<TypeOfDevice> typesList;
     ArrayAdapter<TypeOfDevice> typeAdapter;
     private Button btnAdd, btnUpdate, btnClear, btnLoad;
-    public static final int GET_FROM_GALLERY = 10;
+    public static final int GET_FROM_GALLERY = 100;
     Bitmap bitmap;
     byte[] compressImage = new byte[0];
 
@@ -60,9 +60,9 @@ public class DevicesManageActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         //Detects request codes
-        if(requestCode==GET_FROM_GALLERY && resultCode == Activity.RESULT_OK) {
+        if(requestCode==GET_FROM_GALLERY && resultCode == Activity.RESULT_OK && data != null && data.getData() != null) {
             Uri selectedImage = data.getData();
-            Bitmap bitmap = null;
+//            Bitmap bitmap = null;
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
                 compressImage = getBitmapAsByteArray(bitmap);
@@ -141,9 +141,15 @@ public class DevicesManageActivity extends AppCompatActivity {
                     TypeOfDevice type = (TypeOfDevice) spTypes.getSelectedItem();
                     String typeId = type.getId();
                     String state = spStates.getSelectedItem().toString().trim();
-//                    byte[] imageBytes = getBitmapAsByteArray(bitmap);
 
-                    Device device = new Device(id, name, typeId, origin, null, quantity, state);
+                    Device device = null;
+                    if(compressImage.length > 0){
+                        device = new Device(id, name, typeId, origin, compressImage, quantity, state);
+                        // reset image byte array
+                        compressImage = new byte[0];
+                    }
+                    else
+                        device = new Device(id, name, typeId, origin, null, quantity, state);
                     DatabaseHandler db = new DatabaseHandler(com.example.devicemanagement.DevicesManageActivity.this);
                     db.addDevice(device);
                     loadData();
@@ -158,21 +164,30 @@ public class DevicesManageActivity extends AppCompatActivity {
                     Toast.makeText(getApplication(), "Please enter information", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                String id = edtId.getText().toString().trim();
                 DatabaseHandler db = new DatabaseHandler(com.example.devicemanagement.DevicesManageActivity.this);
+
                 // Get all current values
+                String id = edtId.getText().toString().trim();
                 String name = edtName.getText().toString().trim();
                 String origin = edtOrigin.getText().toString().trim();
                 int quantity = Integer.valueOf(edtQuantity.getText().toString());
                 TypeOfDevice type = (TypeOfDevice) spTypes.getSelectedItem();
                 String typeId = type.getId();
                 String state = spStates.getSelectedItem().toString().trim();
-//                byte[] imageBytes = getBitmapAsByteArray(bitmap);
-//                byte[] imageBytes = compressImage;
-//                Blob blobImage = convertBytesArrToBlob(compressImage);
 
-//                Device newDevice = new Device(id, name, typeId, origin, null, quantity, state);
-                Device newDevice = new Device(id, name, typeId, origin, compressImage, quantity, state);
+                Device newDevice = null;
+                if(compressImage.length > 0){ // edit image (upload the new one)
+                    newDevice = new Device(id, name, typeId, origin, compressImage, quantity, state);
+                    // reset image byte array
+                    compressImage = new byte[0];
+                }
+                else{
+                    // if no image uploaded, remains the old image
+                    // get current device
+                    Device currentDevice = db.getDevice(id);
+                    newDevice = new Device(id, name, typeId, origin, currentDevice.getImage(), quantity, state);
+                }
+
                 int result = db.updateDevice(newDevice);
                 if (result > 0) {
                     Toast.makeText(getBaseContext(), "Update successfully", Toast.LENGTH_SHORT).show();
@@ -309,11 +324,6 @@ public class DevicesManageActivity extends AppCompatActivity {
         return false;
     }
 
-//    public void insertImg(Bitmap img ) {
-//        byte[] data = getBitmapAsByteArray(img); // this is a function
-//        Log.d("byte image", String.valueOf(data));
-//    }
-
     public static byte[] getBitmapAsByteArray(Bitmap bitmap) {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         try{
@@ -331,7 +341,7 @@ public class DevicesManageActivity extends AppCompatActivity {
 //        return byteArray;
     }
 
-    public Bitmap restoreImage(byte[] imageBytes){
+    public static Bitmap restoreImage(byte[] imageBytes){
         BitmapFactory.Options options = new BitmapFactory.Options();
         return BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length, options);
     }

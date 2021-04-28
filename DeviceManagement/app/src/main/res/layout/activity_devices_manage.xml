@@ -158,6 +158,8 @@
         android:layout_height="match_parent"
         android:divider="#80CBC4"
         android:dividerHeight="1dp"
-        android:footerDividersEnabled="false" />
+        android:footerDividersEnabled="false"
+        android:focusable="false"
+        android:descendantFocusability="blocksDescendants"/>
 
 </LinearLayout>

@@ -22,14 +22,15 @@ public class MainActivity extends AppCompatActivity{
     DatabaseHandler dbHdl;
     long millis=System.currentTimeMillis();
     java.sql.Date date=new java.sql.Date(millis);
-    Manager m= new Manager("123","123", "VA", true,date);
+//    Manager m= new Manager("123","123", "VA", true,date);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setTitle("Device Management");
 
         setControl();
-        addManager(m);
+//        addManager(m);
         SharedPreferences sharedPreferences= getSharedPreferences("checkbox", MODE_PRIVATE);
         String checkbox= sharedPreferences.getString("remember","");
         if(checkbox.equals("true")){

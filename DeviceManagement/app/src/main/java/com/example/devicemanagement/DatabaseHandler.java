@@ -368,11 +368,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 device.setTypeId(cursor.getString(2));
                 device.setOrigin(cursor.getString(3));
 
-                String imageStr = cursor.getString(4);
-                byte[] imageBytes = new byte[0];
-                if(imageStr != null) {
-                    imageBytes = imageStr.getBytes();
-                }
+                byte[] imageBytes = cursor.getBlob(4);
                 device.setImage(imageBytes);
 
                 device.setQuantity(cursor.getInt(5));
@@ -386,6 +382,27 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return deviceList;
     }
 
+    public Device getDevice(String id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select * from "+TABLE_DEVICE+" where id=?", new String[]{id});
+        Device device = new Device();
+        if (cursor != null){
+            if(cursor.moveToFirst()) {
+                device.setId(cursor.getString(0));
+                device.setName(cursor.getString(1));
+                device.setTypeId(cursor.getString(2));
+                device.setOrigin(cursor.getString(3));
+
+                byte[] imageBytes = cursor.getBlob(4);
+                device.setImage(imageBytes);
+
+                device.setQuantity(cursor.getInt(5));
+                device.setState(cursor.getString(6));
+            }
+        }
+        return device;
+    }
+
     public void addDevice(Device device){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -393,7 +410,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(COL_NAME, device.getName());
         values.put(COL_TYPE_OF_DEVICE, device.getTypeId());
         values.put(COL_ORIGIN, device.getOrigin());
-        values.put(COL_IMAGE, String.valueOf(device.getImage()));
+
+        byte[] imageBytes = new byte[0];
+        imageBytes = device.getImage();
+        values.put(COL_IMAGE, imageBytes);
         values.put(COL_QUANTITY, String.valueOf(device.getQuantity()));
         values.put(COL_STATE, device.getState());
 
@@ -412,7 +432,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         byte[] imageBytes = new byte[0];
         imageBytes = device.getImage();
 
-        values.put(COL_IMAGE, String.valueOf(imageBytes));
+        values.put(COL_IMAGE, imageBytes);
         values.put(COL_QUANTITY, device.getQuantity());
         values.put(COL_STATE, device.getState());
 
@@ -439,23 +459,18 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-
-
                 Student student=new Student();
                 student.setId(cursor.getString(0));
                 student.setName(cursor.getString(1));
                 student.setClassId(cursor.getString(2));
 
-
                 // Adding contact to list
                 studentsList.add(student);
             } while (cursor.moveToNext());
         }
-
         // return device list
         return studentsList;
     }
-
 
     public List<Room> getAllRoom(){
         List<Room> roomsList = new ArrayList<>();
