@@ -593,5 +593,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return c;
     }
 
+    public int getAvailableDeviceQuantity(String deviceId){
+        Cursor cursor=getDeviceInfo(deviceId);
+        cursor.moveToFirst();
+        int available=cursor.getInt(5);
+        Cursor c=queryAllDeviceBorrows(deviceId);
+        if (c.moveToFirst())
+            do{
+                available+=c.getInt(6)-c.getInt(5);
+
+            }while (c.moveToNext());
+        c.close();
+        return available;
+    };
+
 
 }
