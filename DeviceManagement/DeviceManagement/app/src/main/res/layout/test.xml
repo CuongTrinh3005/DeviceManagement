@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#3395CF">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mã loại"
+            android:textSize="12dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"/>
+
+        <Spinner
+            android:id="@+id/sp_maloai"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên loại"
+            android:textSize="12dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginLeft="25dp"/>
+
+        <TextView
+            android:id="@+id/tv_tenloai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tên "
+            android:textSize="12dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DANH MỤC THIẾT BỊ"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="10dp"
+        android:background="#AFEAEF"/>
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:stretchColumns="2">
+
+        <TableRow android:id="@+id/test_row">
+
+            <TextView
+                android:id="@+id/test_no"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#9EECA2"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="STT"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/test_device_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:background="#9EECA2"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Mã TB"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/test_device_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#9EECA2"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Tên TB"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/test_device_origin"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="#9EECA2"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Xuất xứ"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/tb_device"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="1dp"
+        android:stretchColumns="2"
+        android:background="#ACC2CF">
+
+    </TableLayout>
+
+
+
+</LinearLayout>

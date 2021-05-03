@@ -1,6 +1,6 @@
 package com.example.devicemanagement.Entities;
 
-public class Room {
+public class    Room {
     private String id;
     private String name;
     private int floor;

@@ -1,19 +1,17 @@
 package com.example.devicemanagement.Entities;
 
-import java.sql.Blob;
-
 public class Device {
     private String id;
     private String name;
     private String typeId;
     private String origin;
-    private Blob image;
+    private byte[] image;
     private int quantity;
     private String state;
 
     public Device(){}
 
-    public Device(String id, String name, String typeId, String origin, Blob image, int quantity, String state) {
+    public Device(String id, String name, String typeId, String origin, byte[] image, int quantity, String state) {
         this.id = id;
         this.name = name;
         this.typeId = typeId;
@@ -55,11 +53,11 @@ public class Device {
         this.origin = origin;
     }
 
-    public Blob getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(Blob image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 

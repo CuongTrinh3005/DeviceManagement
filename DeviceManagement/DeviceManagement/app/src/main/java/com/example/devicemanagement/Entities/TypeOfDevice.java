@@ -1,5 +1,7 @@
 package com.example.devicemanagement.Entities;
 
+import androidx.annotation.NonNull;
+
 public class TypeOfDevice {
     private String id;
     private String name;
@@ -26,5 +28,11 @@ public class TypeOfDevice {
     }
 
     public TypeOfDevice() {
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return this.name.trim();
     }
 }
