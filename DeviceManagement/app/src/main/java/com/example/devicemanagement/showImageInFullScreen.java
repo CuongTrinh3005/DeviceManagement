@@ -25,6 +25,7 @@ public class showImageInFullScreen extends AppCompatActivity {
         Intent intent= getIntent();
         Bundle b= intent.getExtras();
         String id = b.getString("deviceId");
+//        String id ="";
 
         DatabaseHandler db = new DatabaseHandler(this);
         Device device = db.getDevice(id);
