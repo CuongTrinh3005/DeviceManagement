@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.devicemanagement.Entities.Manager;
 
 import java.sql.Date;
@@ -61,9 +62,13 @@ public class UserLayout extends AppCompatActivity {
 //        handler.saveManager(manager);
         Manager manager = handler.getAccountById(id);
 
+        // Manager manager = handler.getAccountIF("abc", "1234");
+        //Toast.makeText(UserLayout.this, manager.getName(),Toast.LENGTH_SHORT).show();
+
         String hoten = "", maso = "";
         String ngaysinh = "", matkhau = "";
         boolean gioitinh;
+
 
         maso = manager.getId();
         hoten = manager.getName();
