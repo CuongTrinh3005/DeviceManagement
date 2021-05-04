@@ -198,6 +198,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.insert(TABLE_MANAGER, null, values);
         db.close();
     }
+    //update
+    public void updateManager(Manager manager) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COL_PASSWORD, manager.getPassword());
+        values.put(COL_NAME, manager.getName());
+        values.put(COL_GENDER, manager.isGender());
+        values.put(COL_BIRTHDAY, manager.getBirthday());
+
+        db.update(TABLE_MANAGER, values, KEY_ID + " = ?", new String[]{manager.getId()});
+
+    }
     //get Accout Info
     public Manager getAccountIF(String userName, String password){
         Manager account= new Manager();
@@ -592,20 +605,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor c = db.rawQuery(String.format(query, roomId,  date), null);
         return c;
     }
-
-    public int getAvailableDeviceQuantity(String deviceId){
-        Cursor cursor=getDeviceInfo(deviceId);
-        cursor.moveToFirst();
-        int available=cursor.getInt(5);
-        Cursor c=queryAllDeviceBorrows(deviceId);
-        if (c.moveToFirst())
-            do{
-                available+=c.getInt(6)-c.getInt(5);
-
-            }while (c.moveToNext());
-        c.close();
-        return available;
-    };
 
 
 }

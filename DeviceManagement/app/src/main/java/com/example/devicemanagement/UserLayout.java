@@ -7,9 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +26,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class UserLayout extends AppCompatActivity {
+    ImageView logo;
+    ImageView quat1;
+    ImageView quat2;
+    ImageView hv;
+
     Button btNS;
     Button btHoantat;
     Button btCapNhat;
@@ -43,8 +51,8 @@ public class UserLayout extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_layout);
-        Intent intent= getIntent();
-        Bundle b= intent.getExtras();
+        Intent intent = getIntent();
+        Bundle b = intent.getExtras();
         String id = b.getString("accountId");
         setControl();
         setEvent();
@@ -83,6 +91,11 @@ public class UserLayout extends AppCompatActivity {
     }
 
     private void setControl() {
+        logo = (ImageView) findViewById(R.id.logo);
+        quat1 = (ImageView) findViewById(R.id.canhquat1);
+        quat2 = (ImageView) findViewById(R.id.canhquat2);
+        hv = (ImageView) findViewById(R.id.hocvien);
+
         btNS = (Button) findViewById(R.id.btNS);
         btCapNhat = (Button) findViewById(R.id.btCapNhat);
         btHoantat = (Button) findViewById(R.id.btHoantat);
@@ -99,6 +112,17 @@ public class UserLayout extends AppCompatActivity {
     }
 
     private void setEvent() {
+        setTitle("Thông tin người dùng");
+
+        Animation anim_logo = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
+        logo.startAnimation(anim_logo);
+        Animation anim_quat1 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
+        quat1.startAnimation(anim_quat1);
+        Animation anim_quat2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
+        quat2.startAnimation(anim_quat2);
+        Animation anim_hv = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.move);
+        hv.startAnimation(anim_hv);
+
         btCapNhat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -190,6 +214,7 @@ public class UserLayout extends AppCompatActivity {
         });
 
         // tạo dialog và hiển thị
+        builder.setTitle("Mật khẩu:");
         builder.create().show();
 
     }
@@ -231,6 +256,7 @@ public class UserLayout extends AppCompatActivity {
         });
 
         // tạo dialog và hiển thị
+        builder.setTitle("Họ và tên:");
         builder.create().show();
 
     }
@@ -251,7 +277,7 @@ public class UserLayout extends AppCompatActivity {
 
         DatabaseHandler db = new DatabaseHandler(this);
 
-        db.saveManager(manager);
+        db.updateManager(manager);
         Toast.makeText(this, "Cập nhật Xong", Toast.LENGTH_SHORT).show();
     }
 
