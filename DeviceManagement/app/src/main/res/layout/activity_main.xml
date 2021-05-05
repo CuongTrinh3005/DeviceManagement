@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="89dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="0dp"
         android:layout_marginRight="30dp"
         android:src="@drawable/ic_action_logo" />
 
@@ -63,6 +63,7 @@
         android:textColorHint="@color/white"
         android:textSize="20dp" />
 
+
     <CheckBox
         android:id="@+id/chbsSavePass"
         android:layout_width="match_parent"
@@ -93,13 +94,5 @@
         android:backgroundTint="#100a7c"
         android:text="Đăng ký"
         android:textSize="20dp" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="88dp">
-
-
-
-    </RelativeLayout>
 
 </LinearLayout>

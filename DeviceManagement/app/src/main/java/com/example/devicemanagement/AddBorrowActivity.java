@@ -3,7 +3,6 @@ package com.example.devicemanagement;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -72,22 +71,6 @@ public class AddBorrowActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_item, ls2);
         deviceSelector.setAdapter(deviceListAdapter);
         //////////////////////
-        //////////////////////
-        TextView availableQuantity=findViewById(R.id.add_borrow_available);
-        deviceSelector.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                // your code here
-//                Log.d("error",deviceSelector.getSelectedItem().toString());
-                availableQuantity.setText(handler.getAvailableDeviceQuantity(deviceSelector.getSelectedItem().toString().split(":")[0])+"");
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        /////
 
         //Date picker
 
@@ -173,12 +156,6 @@ public class AddBorrowActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Số lượng phải >0 ",Toast.LENGTH_SHORT).show();
                    return;
                 }
-                if(Integer.parseInt(tvi.getText().toString())>Integer.parseInt(availableQuantity.getText().toString()))
-                {
-                    Toast.makeText(getApplicationContext(),"Số lượng thiết bị có sẵn là :"+availableQuantity.getText().toString(),Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
                 for(Detailed_Borrow_Pay detail: detailList){
                     if(deviceSelector.getSelectedItem().toString().split(":")[0].equals(detail.getDeviceId())){
                         Toast.makeText(getApplicationContext(),"Thiết bị đã có trong danh sách mượn",Toast.LENGTH_SHORT).show();

@@ -4,15 +4,40 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center"
-        android:src="@drawable/logo">
+        <ImageView
+            android:id="@+id/canhquat1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:src="@drawable/canhquat">
 
-    </ImageView>
+        </ImageView>
 
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo">
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/canhquat2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:src="@drawable/canhquat">
+
+        </ImageView>
+
+
+    </LinearLayout>
 
 
     <LinearLayout
@@ -21,67 +46,74 @@
         android:orientation="horizontal">
 
         <TextView
+            android:textSize="20dp"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:text="Mã Số: "></TextView>
 
         <TextView
+            android:textSize="20dp"
             android:id="@+id/tvMaSo"
             android:layout_width="300dp"
             android:layout_height="50dp" />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
-
+            android:textSize="20dp"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:text="Họ và tên: "></TextView>
 
         <TextView
-
             android:id="@+id/tvHoTen"
+            android:textSize="20dp"
             android:layout_width="200dp"
             android:layout_height="50dp" />
+
         <Button
             android:id="@+id/btSuaTen"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:drawableLeft="@android:drawable/ic_menu_edit"
-            android:layout_marginLeft="50dp"/>
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/cus_button2"
+            android:drawableLeft="@android:drawable/ic_menu_edit" />
 
 
     </LinearLayout>
 
 
+    <TextView
+        android:textSize="20dp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="Giới Tính"></TextView>
 
-        <TextView
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:textSize="20dp"
+            android:id="@+id/rdNam"
             android:layout_width="100dp"
-            android:layout_height="20dp"
-            android:text="Giới Tính"></TextView>
+            android:layout_height="50dp"
+            android:text="Nam"></RadioButton>
 
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <RadioButton
+            android:textSize="20dp"
+            android:id="@+id/rdNu"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="Nữ"></RadioButton>
 
-                <RadioButton
-                    android:id="@+id/rdNam"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:text="Nam"></RadioButton>
-
-                <RadioButton
-                    android:id="@+id/rdNu"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:text="Nữ"></RadioButton>
-
-        </RadioGroup>
+    </RadioGroup>
 
 
     <LinearLayout
@@ -90,23 +122,26 @@
         android:orientation="horizontal">
 
         <TextView
+            android:textSize="20dp"
             android:layout_width="100dp"
             android:layout_height="60dp"
             android:text="Ngày Sinh" />
+
         <TextView
+            android:textSize="20dp"
             android:id="@+id/tvNS"
             android:layout_width="200dp"
-            android:layout_height="50dp"/>
-
+            android:layout_height="50dp" />
 
 
         <Button
             android:id="@+id/btNS"
-
             android:layout_width="50dp"
+
             android:layout_height="50dp"
-            android:drawableLeft="@android:drawable/ic_menu_edit"
-            android:layout_marginLeft="50dp" />
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/cus_button2"
+            android:drawableLeft="@android:drawable/ic_menu_edit" />
 
     </LinearLayout>
 
@@ -116,11 +151,13 @@
         android:orientation="horizontal">
 
         <TextView
+            android:textSize="20dp"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:text="Mật khẩu: "></TextView>
 
         <TextView
+            android:textSize="20dp"
             android:id="@+id/tvMK"
             android:layout_width="100dp"
             android:layout_height="50dp"></TextView>
@@ -132,18 +169,31 @@
         android:orientation="horizontal">
 
 
-
     </LinearLayout>
+
     <Button
         android:id="@+id/btCapNhat"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/cus_button1"
         android:text="Đổi Mật Khẩu"></Button>
 
     <Button
+
         android:id="@+id/btHoantat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hoàn Tất"></Button>
 
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/cus_button3"
+        android:text="   HOÀN TẤT    "></Button>
+
+<ImageView
+    android:id="@+id/hocvien"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:src="@drawable/hocvien"></ImageView>
 </LinearLayout>
