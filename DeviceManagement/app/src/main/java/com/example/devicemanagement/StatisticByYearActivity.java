@@ -20,7 +20,7 @@ public class StatisticByYearActivity extends AppCompatActivity {
     List<thongTinThongKe> arrThongKe;
     Button ViewBarChart;
     ListView viewListTK;
-    Button back_home;
+//    Button back_home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +43,13 @@ public class StatisticByYearActivity extends AppCompatActivity {
             }
         });
 
-        back_home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(StatisticByYearActivity.this, FirstPage.class);
-                startActivity(intent);
-            }
-        });
+//        back_home.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(StatisticByYearActivity.this, FirstPage.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 
     public void setData(){
@@ -107,6 +107,6 @@ public class StatisticByYearActivity extends AppCompatActivity {
     public void setControl(){
         viewListTK = findViewById(R.id.list_tk);
         ViewBarChart = findViewById(R.id.barchart_inTK);
-        back_home = findViewById(R.id.back_home);
+//        back_home = findViewById(R.id.back_home);
     }
 }
