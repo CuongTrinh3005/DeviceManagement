@@ -1,6 +1,8 @@
 package com.example.devicemanagement;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -16,11 +18,9 @@ import java.util.List;
 
 public class StatisticByYearActivity extends AppCompatActivity {
     List<thongTinThongKe> arrThongKe;
-    List<thongTinThongKe> arrThongKeNew;
-    Button back;
+    Button ViewBarChart;
     ListView viewListTK;
-    TextView mini_title;
-    String temp;
+//    Button back_home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +34,22 @@ public class StatisticByYearActivity extends AppCompatActivity {
     public void setEven(){
         adapterListThongke adapter = new adapterListThongke(this,this, arrThongKe, R.layout.rowing_of_table);
         viewListTK.setAdapter(adapter);
-    }
 
-    public class data_thongKe{
+        ViewBarChart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StatisticByYearActivity.this, chart_thongke.class);
+                startActivity(intent);
+            }
+        });
 
+//        back_home.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(StatisticByYearActivity.this, FirstPage.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 
     public void setData(){
@@ -63,8 +75,8 @@ public class StatisticByYearActivity extends AppCompatActivity {
                         Detailed_Borrow_Pay detailed_borrow_pay = detaileds.get(count1);
 
                         if(detailed_borrow_pay.getId()==borrow_pay.getId()){
-                             int dem = 0;
-                             int sl = 0;
+                            int dem = 0;
+                            int sl = 0;
                             for (int i = 0 ; i < deviceList.size() ; i++){
 
                                 if(deviceList.get(i).getId().compareTo(detailed_borrow_pay.getDeviceId())==0){
@@ -94,6 +106,7 @@ public class StatisticByYearActivity extends AppCompatActivity {
 
     public void setControl(){
         viewListTK = findViewById(R.id.list_tk);
-//        mini_title = findViewById(R.id.mini_title);
+        ViewBarChart = findViewById(R.id.barchart_inTK);
+//        back_home = findViewById(R.id.back_home);
     }
 }
