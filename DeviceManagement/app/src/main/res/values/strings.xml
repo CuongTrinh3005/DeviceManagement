@@ -6,7 +6,7 @@
         <item>HỎNG</item>
     </string-array>
     <string name="title_tk">Thống kê</string>
-    <string name="mini_title_tk">Thống kê số lượng sử dụng thiết bị theo năm</string>
+    <string name="mini_title_tk">Số lượng sử dụng thiết bị theo năm</string>
     <string name="table_col1">Mã thiết bị</string>
     <string name="table_col2">Tên thiết bị</string>
     <string name="table_col3">Tổng số lượng</string>
