@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class barchar_layout extends AppCompatActivity {
+public class chart_thongke extends AppCompatActivity {
     List<BarEntry> listYear;
     BarChart chart;
     Button chartbut;
