@@ -45,7 +45,7 @@ public class chart_thongke extends AppCompatActivity {
         chartbut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(barchar_layout.this, StatisticByYearActivity.class);
+                Intent intent = new Intent(chart_thongke.this, StatisticByYearActivity.class);
                 startActivity(intent);
             }
         });

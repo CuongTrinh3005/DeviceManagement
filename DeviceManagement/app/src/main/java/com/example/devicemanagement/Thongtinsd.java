@@ -128,7 +128,7 @@ public class Thongtinsd extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test);
-        getSupportActionBar().setTitle("Thông tin sử dụng");
+//        getSupportActionBar().setTitle("Thông tin sử dụng");
 
         setControl();
         setEvent();
