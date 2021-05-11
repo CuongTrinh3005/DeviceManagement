@@ -62,14 +62,10 @@ public class chart_thongke extends AppCompatActivity {
         return year;
     }
 
-
     public void setData_chart(){
 
         //save data of chart
         listYear = new ArrayList<>();
-        List<BarEntry> lisyear_Temp = new ArrayList<>();
-
-
 
         DatabaseHandler handler = new DatabaseHandler(this);
         // Test list of devices
@@ -85,26 +81,21 @@ public class chart_thongke extends AppCompatActivity {
             year_now = getYear_ofBorrowday(borrow_pay.getBorrowDay());
             years.add(year_now);
         }
+
         ///delete duplicate of year.
-        if (years.size()>1){
-            int sizeOfYears = years.size(), count = 0;
-            while (count < sizeOfYears-1){
-                if (years.get(count) == years.get(count+1)){
-                    years.remove(count+1);
+        int sizeOfYears = years.size();
+        for (int count = 0 ; count < sizeOfYears-1; count++){
+            for (int count1 = count+1; count1 < sizeOfYears; count1++){
+                if (years.get(count).compareTo((int) years.get(count1))==0){
+                    years.remove(count1);
+                    count1--;
                     sizeOfYears--;
                 }
-                else count++;
+                else System.err.println(years.get(count) + "- count : count1 - " + years.get(count1));
             }
-
         }
 
-        for (int count = 0; count < borrowPaylist.size(); count++) {
-            Borrow_Pay borrow_pay = borrowPaylist.get(count);
-            int yearNow = 0;
-            year_now = getYear_ofBorrowday(borrow_pay.getBorrowDay());
-            years.add(year_now);
-        }
-        System.err.println(years.size() + "check");
+        // test years duplicate
         for (int count = 0; count < years.size(); count++) {
             System.err.println(years.get(count) + "check");
         }
@@ -115,12 +106,14 @@ public class chart_thongke extends AppCompatActivity {
             for(int count = 0; count < borrowPaylist.size(); count++) {
                 BarEntry tk;
                 Borrow_Pay borrow_pay = borrowPaylist.get(count);
-                if (getYear_ofBorrowday(borrow_pay.getBorrowDay())== years.get(countYear)) {
+                int temp_year = getYear_ofBorrowday(borrow_pay.getBorrowDay());
+                if (temp_year == years.get(countYear)) {
                     for (int count1 = 0; count1 < detaileds.size(); count1++) {
                         ///connect borrow-detailed_borrow
                         Detailed_Borrow_Pay detailed_borrow_pay = detaileds.get(count1);
-                        if (detailed_borrow_pay.getId() == borrow_pay.getId()) {
+                        if (detailed_borrow_pay.getId()== borrow_pay.getId()) {
                             soluong_inyear += detailed_borrow_pay.getNumBorrow();
+                            System.err.println("year: "+ getYear_ofBorrowday(borrow_pay.getBorrowDay()) + ", so luong: " + detailed_borrow_pay.getNumBorrow());
                         }
                     }
                 }
