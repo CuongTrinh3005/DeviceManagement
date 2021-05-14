@@ -50,6 +50,7 @@ public class DevicesManageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_devices_manage);
+        getSupportActionBar().setTitle("Device Activity");
         init();
         setControl();
         setEvent();
@@ -235,9 +236,18 @@ public class DevicesManageActivity extends AppCompatActivity {
     }
 
     public void deleteDV(Device device) {
+        // Check if device is in borrow list
+        DatabaseHandler db = new DatabaseHandler(this);
+        boolean existedInBorrow = db.checkIfDeviceInBorrow(device);
+        if(existedInBorrow){
+            Toast.makeText(getApplicationContext(), "Can not delete item in borrow list", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        db.close();
+
         AlertDialog.Builder builder = new AlertDialog.Builder(com.example.devicemanagement.DevicesManageActivity.this);
 
-        builder.setMessage("Do you want do deleted?");
+        builder.setMessage("Do you want to delete?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

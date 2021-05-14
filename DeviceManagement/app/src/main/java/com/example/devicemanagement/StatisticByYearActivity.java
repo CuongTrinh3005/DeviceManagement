@@ -86,7 +86,6 @@ public class StatisticByYearActivity extends AppCompatActivity {
                             }
                             Device device = deviceList.get(dem);
                             tk = new thongTinThongKe("","",0,0);
-                            //detailed_borrow_pay.getDeviceId(),deviceList.get(dem).getName(), deviceList.get(dem).getQuantity(), detailed_borrow_pay.getNumBorrow()
                             tk.setSL(deviceList.get(dem).getQuantity());
                             tk.setNameTB(deviceList.get(dem).getName());
                             tk.setId(detailed_borrow_pay.getDeviceId());

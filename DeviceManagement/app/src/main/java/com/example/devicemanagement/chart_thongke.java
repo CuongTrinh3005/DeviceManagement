@@ -91,14 +91,14 @@ public class chart_thongke extends AppCompatActivity {
                     count1--;
                     sizeOfYears--;
                 }
-                else System.err.println(years.get(count) + "- count : count1 - " + years.get(count1));
+//                else System.err.println(years.get(count) + "- count : count1 - " + years.get(count1));
             }
         }
 
         // test years duplicate
-        for (int count = 0; count < years.size(); count++) {
-            System.err.println(years.get(count) + "check");
-        }
+//        for (int count = 0; count < years.size(); count++) {
+//            System.err.println(years.get(count) + "check");
+//        }
 
         //get idDevice was borrowed in year
         for (int countYear = 0; countYear < years.size(); countYear++){

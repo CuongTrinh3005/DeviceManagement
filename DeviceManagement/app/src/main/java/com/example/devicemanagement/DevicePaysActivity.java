@@ -106,11 +106,13 @@ public class DevicePaysActivity extends AppCompatActivity {
             }
 
         });
-
+        loadTable();
     }
 
     private void loadTable(){
-            tl.removeAllViews();
+//            tl.removeAllViews();
+        if(tl.getChildCount()>1)
+            tl.removeViews(1,tl.getChildCount()-1);
             Cursor c = handler.queryAllRoomBorrows(roomSelector.getSelectedItem().toString().split(":")[0],edittext.getText().toString());
             int count=0;
             if (c.moveToFirst()) {
@@ -127,6 +129,7 @@ public class DevicePaysActivity extends AppCompatActivity {
                     ((TextView)trContainer.findViewById(R.id.device_pays_no)).measure(0,0);
                     tv.setWidth(((TextView)trContainer.findViewById(R.id.device_pays_no)).getMeasuredWidth());
                     tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+
 
                     TextView tv1 = new TextView(DevicePaysActivity.this);
                     tv1.setText(c.getString(2));
@@ -160,14 +163,14 @@ public class DevicePaysActivity extends AppCompatActivity {
 
                     tv5.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
                     /* Add TextView to row. */
-                    tr.addView(tv);
-                    tr.addView(tv1);
+
                     Button button =new Button(DevicePaysActivity.this);
+                    button.setWidth(((TextView)trContainer.findViewById(R.id.device_pays_no)).getMeasuredWidth());
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             AlertDialog.Builder builder = new AlertDialog.Builder(DevicePaysActivity.this);
-                            builder.setTitle("Title");
+                            builder.setTitle("Nhập số lượng thiết bị muốn trả");
 
 // Set up the input
                             final EditText input = new EditText(DevicePaysActivity.this);
@@ -185,7 +188,7 @@ public class DevicePaysActivity extends AppCompatActivity {
                                         return;
                                     }
                                     else {
-                                        handler.payDeviceBorrow(borrowId,deviceId,payInput);
+                                        handler.payDeviceBorrow(borrowId,deviceId,payInput+payQuantity);
                                         loadTable();
                                     }
 
@@ -201,8 +204,13 @@ public class DevicePaysActivity extends AppCompatActivity {
                             builder.show();
                         }
                     });
-                    button.setText("Pay");
+                    button.setText("Trả");
+
+
+//                    tr.addView(tv);
                     tr.addView(button);
+                    tr.addView(tv1);
+
                     tr.addView(tv3);
                     tr.addView(tv4);
                     tr.addView(tv5);

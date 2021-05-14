@@ -85,15 +85,7 @@ public class Thongtinsd extends AppCompatActivity {
 
             tableLayout.addView(tr);
 
-            //Click table row to change layout
-            tv_no.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(Thongtinsd.this, Chitietsd.class);
-                    startActivity(intent);
-                    Toast.makeText(Thongtinsd.this, tv_id.getText(), Toast.LENGTH_SHORT).show();
-                }
-            });
+
         }
 
         if(count == 0){

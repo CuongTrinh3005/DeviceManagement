@@ -3,6 +3,7 @@ package com.example.devicemanagement;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -49,6 +50,7 @@ public class AddBorrowActivity extends AppCompatActivity {
         ArrayAdapter<String> studentListAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, ls);
         studentSelector.setAdapter(studentListAdapter);
+
         //////
 
         //////////////////
@@ -71,6 +73,22 @@ public class AddBorrowActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_item, ls2);
         deviceSelector.setAdapter(deviceListAdapter);
         //////////////////////
+        //////////////////////
+        TextView availableQuantity=findViewById(R.id.add_borrow_available);
+        deviceSelector.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+//                Log.d("error",deviceSelector.getSelectedItem().toString());
+                availableQuantity.setText(handler.getAvailableDeviceQuantity(deviceSelector.getSelectedItem().toString().split(":")[0])+"");
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        /////
 
         //Date picker
 
@@ -154,8 +172,14 @@ public class AddBorrowActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(tvi.getText().length()==0||Integer.parseInt(tvi.getText().toString())==0){
                     Toast.makeText(getApplicationContext(),"Số lượng phải >0 ",Toast.LENGTH_SHORT).show();
-                   return;
+                    return;
                 }
+                if(Integer.parseInt(tvi.getText().toString())>Integer.parseInt(availableQuantity.getText().toString()))
+                {
+                    Toast.makeText(getApplicationContext(),"Số lượng thiết bị có sẵn là :"+availableQuantity.getText().toString(),Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 for(Detailed_Borrow_Pay detail: detailList){
                     if(deviceSelector.getSelectedItem().toString().split(":")[0].equals(detail.getDeviceId())){
                         Toast.makeText(getApplicationContext(),"Thiết bị đã có trong danh sách mượn",Toast.LENGTH_SHORT).show();
@@ -192,6 +216,9 @@ public class AddBorrowActivity extends AppCompatActivity {
 
                 Button button =new Button(AddBorrowActivity.this);
                 button.setText("x");
+                ((TextView)trContainer.findViewById(R.id.add_borrow_delete_column)).measure(0,0);
+                button.setWidth(((TextView)trContainer.findViewById(R.id.add_borrow_delete_column)).getMeasuredWidth());
+
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -216,12 +243,19 @@ public class AddBorrowActivity extends AppCompatActivity {
         saveDetailBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if(detailList.size()<=0){
+                    Toast.makeText(getApplicationContext(),"Chưa có chi tiết mượn",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 for(Detailed_Borrow_Pay detail: detailList){
                     handler.insertDetailBorrow((detail));
                 }
                 //Refresh
-                tl.removeAllViews();
+                availableQuantity.setText(handler.getAvailableDeviceQuantity(deviceSelector.getSelectedItem().toString().split(":")[0])+"");
+
+                if(tl.getChildCount()>1)
+                    tl.removeViews(1,tl.getChildCount()-1);
+
                 detailList.clear();
                 last=null;
                 addDetailButton.setEnabled(false);

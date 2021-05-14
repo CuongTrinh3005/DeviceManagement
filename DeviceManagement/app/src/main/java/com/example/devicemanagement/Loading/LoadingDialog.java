@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import com.example.devicemanagement.R;
 
 public class LoadingDialog {
-   private Activity activity;
+    private Activity activity;
     private AlertDialog dialog;
 
     public LoadingDialog(Activity myActivity){

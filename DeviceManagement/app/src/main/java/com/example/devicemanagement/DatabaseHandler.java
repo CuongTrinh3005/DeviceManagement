@@ -460,6 +460,20 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    public boolean checkIfDeviceInBorrow(Device device){
+        SQLiteDatabase db = this.getReadableDatabase();
+        boolean hasObject = false;
+        Cursor cursor = db.rawQuery("Select * from "+TABLE_DETAILED_BORROW_PAY+" where deviceId=?", new String[]{device.getId()});
+        if (cursor != null){
+            if(cursor.moveToFirst()) {
+                hasObject = true;
+            }
+        }
+        cursor.close();
+        db.close();
+        return hasObject;
+    }
+
     // Borrow - Pay
     public List<Student> getAllStudent(){
         List<Student> studentsList = new ArrayList<>();
@@ -605,6 +619,21 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor c = db.rawQuery(String.format(query, roomId,  date), null);
         return c;
     }
+
+
+    public int getAvailableDeviceQuantity(String deviceId){
+        Cursor cursor=getDeviceInfo(deviceId);
+        cursor.moveToFirst();
+        int available=cursor.getInt(5);
+        Cursor c=queryAllDeviceBorrows(deviceId);
+        if (c.moveToFirst())
+            do{
+                available+=c.getInt(6)-c.getInt(5);
+
+            }while (c.moveToNext());
+        c.close();
+        return available;
+    };
 
 
 }

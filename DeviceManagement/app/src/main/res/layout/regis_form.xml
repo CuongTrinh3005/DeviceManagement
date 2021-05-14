@@ -20,7 +20,7 @@
     <EditText
         android:id="@+id/etxtIDF"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:layout_marginTop="@dimen/material_emphasis_medium"
         android:background="#2e4884"
         android:drawableLeft="@drawable/ic_action_user"
@@ -38,7 +38,7 @@
     <EditText
         android:id="@+id/etxtFullNameF"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:layout_marginTop="@dimen/material_emphasis_medium"
         android:background="#2e4884"
         android:drawableLeft="@drawable/ic_action_user"
@@ -55,7 +55,7 @@
     <RadioGroup
         android:id="@+id/rgrpGender"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:orientation="horizontal"
         android:background="#2e4884"
         android:layout_marginLeft="20dp"
@@ -78,7 +78,7 @@
             android:text="Nam"
             android:textSize="20dp"
             android:textColor="@color/white"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="30dp"
             android:layout_gravity="center_vertical"
             android:checked="true"
             />
@@ -89,14 +89,14 @@
             android:text="Nữ"
             android:textSize="20dp"
             android:textColor="@color/white"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="30dp"
             android:layout_gravity="center_vertical"
             />
     </RadioGroup>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:orientation="horizontal"
         android:layout_gravity="center_horizontal"
         android:background="#2e4884"
@@ -127,7 +127,7 @@
     <EditText
         android:id="@+id/etxtPasswordF"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:layout_marginVertical="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="@dimen/material_emphasis_medium"
@@ -145,7 +145,7 @@
     <EditText
         android:id="@+id/etxtRePasswordF"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:layout_marginTop="@dimen/material_emphasis_medium"
         android:background="#2e4884"
         android:drawableLeft="@drawable/ic_action_pass"

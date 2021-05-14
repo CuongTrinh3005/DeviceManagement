@@ -84,7 +84,7 @@
                 android:layout_weight="2"
                 android:gravity="center_horizontal"
                 android:padding="10sp"
-                android:text="STT"
+                android:text="Trả TB"
                 android:textColor="@android:color/white"
                 android:textSize="14sp" />
 

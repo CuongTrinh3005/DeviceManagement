@@ -31,6 +31,7 @@ public class RegisForm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.regis_form);
         initDatePicker();
+        getSupportActionBar().hide();
 
         dateButton = findViewById(R.id.btnSpinnerBirth);
         regis=findViewById(R.id.btnRegisF);
