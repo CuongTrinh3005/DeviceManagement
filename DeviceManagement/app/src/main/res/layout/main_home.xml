@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="
+#9f9dca"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btnExit"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="@android:color/transparent"
+            android:backgroundTint="@color/white"
+            android:drawableRight="@drawable/ic_action_exit" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="71dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="Chào mừng!"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="142dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="155dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp">
+
+            <ImageView
+                android:id="@+id/imgUser"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:src="@drawable/ic_action_logo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/tVUserName"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:text="Nguyen van a"
+                android:textSize="20dp"
+                android:textStyle="normal"
+                android:textColor="@color/white"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/tVID"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="MSNV"
+                android:textSize="20dp"
+                android:textStyle="normal"
+                android:textColor="@color/white"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="5dp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:gravity="center_vertical"
+            android:text="Chức năng nổi bật"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="180dp"
+                android:layout_height="match_parent"
+                android:gravity="top"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnProcessData"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:padding="0dp"
+                    android:background="#100a7c"
+                    android:text="Quản lý thiết bị"
+                    android:textSize="13dp" />
+
+                <Button
+                    android:id="@+id/btnStatistic"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="#100a7c"
+                    android:padding="0dp"
+                    android:textSize="13dp"
+                    android:text="Thống kê thiết bị" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnBorrowPay"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:padding="0dp"
+                    android:background="#100a7c"
+                    android:text="Mượn, trả thiết bị"
+                    android:textSize="13dp" />
+
+                <Button
+                    android:id="@+id/btnLookup"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="#100a7c"
+                    android:layout_margin="10dp"
+                    android:padding="0dp"
+                    android:text="Thống kê sử dụng"
+                    android:textSize="13dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

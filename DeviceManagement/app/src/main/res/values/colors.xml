@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+<<<<<<< HEAD
+=======
+    <color name="light_blue">#ADBFED</color>
+    <color name="light_smoke">#D4D4D6</color>
+>>>>>>> 178139752fc1ac473a4c6534eab03d2f83e94f7f
 </resources>

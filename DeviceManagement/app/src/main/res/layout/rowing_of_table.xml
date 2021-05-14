@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top"
+    android:adjustViewBounds="true"
+    android:background="@color/white"
+    android:columnCount="4"
+    android:rowCount="4">
+
+    <TextView
+        android:id="@+id/id_table"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="@string/table_col1"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/name_table"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="@string/table_col2"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/sl_table"
+        android:layout_width="90dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="@string/table_col3"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/inYear_table"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="@string/table_col4"
+        android:textColor="@color/black" />
+
+</GridLayout>

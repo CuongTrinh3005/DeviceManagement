@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#584a91"
+    android:orientation="vertical">
+
+<!--    <TextView-->
+<!--        android:id="@+id/txtHello"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="56dp"-->
+<!--        android:fontFamily="sans-serif-medium"-->
+<!--        android:gravity="center"-->
+<!--        android:text="Đăng ký!"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="30dp" />-->
+
+    <EditText
+        android:id="@+id/etxtIDF"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="@dimen/material_emphasis_medium"
+        android:background="#2e4884"
+        android:drawableLeft="@drawable/ic_action_user"
+        android:ems="10"
+        android:hint="Tên đăng nhập"
+        android:textColorHint="@color/white"
+        android:inputType="text"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginVertical="10dp"/>
+
+    <EditText
+        android:id="@+id/etxtFullNameF"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="@dimen/material_emphasis_medium"
+        android:background="#2e4884"
+        android:drawableLeft="@drawable/ic_action_user"
+        android:ems="10"
+        android:hint="Họ tên"
+        android:textColorHint="@color/white"
+        android:inputType="text"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginVertical="10dp"/>
+    <RadioGroup
+        android:id="@+id/rgrpGender"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="#2e4884"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginVertical="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Giới tính"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:layout_gravity="center_vertical"
+            android:drawableLeft="@drawable/ic_action_gender"/>
+        <RadioButton
+            android:id="@+id/rbtnMale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nam"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="30dp"
+            android:layout_gravity="center_vertical"
+            android:checked="true"
+            />
+        <RadioButton
+            android:id="@+id/rbtnFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nữ"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="30dp"
+            android:layout_gravity="center_vertical"
+            />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:background="#2e4884"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginVertical="10dp">
+        <TextView
+            android:id="@+id/txtBirth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ngày sinh:"
+            android:textSize="20dp"
+            android:drawableLeft="@drawable/ic_action_birth"
+            android:textColor="@color/white" android:layout_gravity="center_vertical"/>
+        <Button
+            android:id="@+id/btnSpinnerBirth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="01-01-2021"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            style="?android:spinnerStyle"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/etxtPasswordF"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginVertical="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="@dimen/material_emphasis_medium"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="#2e4884"
+        android:drawableLeft="@drawable/ic_action_pass"
+        android:ems="10"
+        android:hint="Mật khẩu"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/etxtRePasswordF"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="@dimen/material_emphasis_medium"
+        android:background="#2e4884"
+        android:drawableLeft="@drawable/ic_action_pass"
+        android:ems="10"
+        android:textColorHint="@color/white"
+        android:hint="Nhập lại mật khẩu"
+        android:inputType="textPassword"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginVertical="10dp"/>
+
+    <Button
+        android:id="@+id/btnRegisF"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:backgroundTint="#100a7c"
+        android:text="Đăng ký"
+        android:textSize="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"/>
+
+</LinearLayout>
